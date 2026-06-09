@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wrapped Natália & Bruno</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+}
+
+body{
+background:#000;
+overflow:hidden;
+}
+
+.slider{
+display:flex;
+width:500vw;
+height:100vh;
+transition:.6s;
+}
+
+.story{
+width:100vw;
+height:100vh;
+padding:40px 30px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+}
+
+.story h1{
+font-size:3rem;
+margin-bottom:20px;
+}
+
+.story p{
+font-size:1.3rem;
+line-height:1.6;
+max-width:350px;
+}
+
+.s1{
+background:linear-gradient(180deg,#0f4c81,#091729);
+}
+
+.s2{
+background:linear-gradient(180deg,#0c5f58,#041d1b);
+}
+
+.s3{
+background:linear-gradient(180deg,#8a4fff,#2d1254);
+}
+
+.s4{
+background:linear-gradient(180deg,#ff7a18,#3b1200);
+}
+
+.s5{
+background:linear-gradient(180deg,#ff5f8f,#40051a);
+}
+
+.photo{
+
+width:260px;
+height:260px;
+
+border-radius:24px;
+
+background:url("https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2");
+
+background-size:cover;
+background-position:center;
+
+margin-bottom:25px;
+
+box-shadow:0 20px 40px rgba(0,0,0,.4);
+
+}
+
+.timeline{
+margin-top:30px;
+text-align:left;
+}
+
+.timeline-item{
+margin:30px 0;
+padding-left:25px;
+border-left:4px solid white;
+}
+
+.timeline-item strong{
+display:block;
+font-size:1.1rem;
+margin-bottom:5px;
+}
+
+.controls{
+
+position:fixed;
+bottom:30px;
+
+left:50%;
+transform:translateX(-50%);
+
+display:flex;
+gap:15px;
+}
+
+button{
+
+border:none;
+background:white;
+
+padding:14px 20px;
+
+border-radius:999px;
+
+font-weight:700;
+
+cursor:pointer;
+
+}
+
+/* RODA */
+
+.wheel{
+
+width:260px;
+height:260px;
+
+border-radius:50%;
+
+background:conic-gradient(
+#fff 0deg 45deg,
+#ddd 45deg 90deg,
+#fff 90deg 135deg,
+#ddd 135deg 180deg,
+#fff 180deg 225deg,
+#ddd 225deg 270deg,
+#fff 270deg 315deg,
+#ddd 315deg 360deg
+);
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+transition:4s cubic-bezier(.17,.67,.13,.99);
+
+margin-bottom:25px;
+}
+
+.result{
+font-size:2rem;
+font-weight:800;
+margin-top:20px;
+}
+
+.big-number{
+font-size:4rem;
+font-weight:800;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="slider" class="slider">
+
+<!-- STORY 1 -->
+
+<section class="story s1">
+
+<h1>❤️ Horas Juntos</h1>
+
+<div id="horas" class="big-number"></div>
+
+<p>
+Desde o primeiro beijo,
+vocês já viveram milhares de horas
+juntos nessa aventura.
+</p>
+
+</section>
+
+<!-- STORY 2 -->
+
+<section class="story s2">
+
+<h1>📍 Linha do Tempo</h1>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<strong>26 Dez 2025</strong>
+Primeira mensagem
+</div>
+
+<div class="timeline-item">
+<strong>22 Fev 2026</strong>
+Primeiro encontro e primeiro beijo
+</div>
+
+<div class="timeline-item">
+<strong>23 Mai 2026</strong>
+Início do namoro
+</div>
+
+<div class="timeline-item">
+<strong>Hoje</strong>
+Continuando a escrever a história
+</div>
+
+</div>
+
+</section>
+
+<!-- STORY 3 -->
+
+<section class="story s3">
+
+<div class="photo"></div>
+
+<h1>🐶 Amor em Dose Tripla</h1>
+
+<p>
+
+Uma família formada por
+Natália, Bruno e um companheiro
+de quatro patas cheio de amor.
+
+</p>
+
+</section>
+
+<!-- STORY 4 -->
+
+<section class="story s4">
+
+<h1>🎡 Para Onde Vamos Hoje?</h1>
+
+<div id="wheel" class="wheel"></div>
+
+<button onclick="girar()">
+Girar Roleta
+</button>
+
+<div id="resultado" class="result"></div>
+
+</section>
+
+<!-- STORY 5 -->
+
+<section class="story s5">
+
+<h1>🍂 Nosso Amor</h1>
+
+<div id="estacoes" class="big-number"></div>
+
+<p>
+
+Nosso amor começou no verão.
+
+Já atravessou várias estações
+e continua florescendo.
+
+💙
+
+</p>
+
+</section>
+
+</div>
+
+<div class="controls">
+
+<button onclick="prev()">
+◀
+</button>
+
+<button onclick="next()">
+▶
+</button>
+
+</div>
+
+<script>
+
+let page = 0;
+
+function update(){
+
+document.getElementById("slider").style.transform =
+`translateX(-${page*100}vw)`;
+
+}
+
+function next(){
+
+if(page < 4){
+page++;
+update();
+}
+
+}
+
+function prev(){
+
+if(page > 0){
+page--;
+update();
+}
+
+}
+
+/* HORAS */
+
+const beijo =
+new Date("2026-02-22");
+
+const agora =
+new Date();
+
+const horas =
+Math.floor(
+(agora-beijo)/(1000*60*60)
+);
+
+document.getElementById("horas").innerHTML =
+horas.toLocaleString();
+
+/* ESTAÇÕES */
+
+const dias =
+Math.floor(
+(agora-beijo)/(1000*60*60*24)
+);
+
+const estacoes =
+Math.floor(dias/91);
+
+document.getElementById("estacoes").innerHTML =
+estacoes + " estações";
+
+/* ROLETA */
+
+const opcoes = [
+
+"🍕 Rodízio",
+"🎬 Cinema",
+"🌳 Parque",
+"☕ Cafeteria",
+"🍔 Hambúrguer",
+"🎳 Boliche",
+"🍣 Japonês",
+"🚗 Passeio Surpresa"
+
+];
+
+let rot = 0;
+
+function girar(){
+
+const wheel =
+document.getElementById("wheel");
+
+const sorteio =
+Math.floor(Math.random()*8);
+
+rot += 1800 + (sorteio*45);
+
+wheel.style.transform =
+`rotate(${rot}deg)`;
+
+setTimeout(()=>{
+
+document.getElementById("resultado")
+.innerHTML =
+opcoes[sorteio];
+
+},4000);
+
+}
+
+</script>
+
+</body>
+</html>
