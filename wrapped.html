@@ -199,6 +199,17 @@ font-size:4rem;
 font-weight:800;
 }
 
+.restart{
+display:inline-block;
+margin-top:30px;
+background:white;
+color:black;
+padding:16px 24px;
+border-radius:999px;
+text-decoration:none;
+font-weight:700;
+}
+  
 </style>
 </head>
 
@@ -331,6 +342,10 @@ e continua florescendo.
 
 </p>
 
+<a href="index.html" class="restart">
+▶ Voltar para nossa playlist
+</a>
+  
 </section>
 
 </div>
@@ -484,6 +499,14 @@ document.getElementById("resultado")
 .innerHTML =
 opcoes[sorteio];
 
+confetti({
+
+particleCount:200,
+spread:100,
+origin:{y:.6}
+
+});
+
 },4000);
 
 }
@@ -492,5 +515,7 @@ update();
   
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  
 </body>
 </html>
