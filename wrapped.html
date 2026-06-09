@@ -169,11 +169,6 @@ font-weight:800;
 margin-top:20px;
 }
 
-.big-number{
-font-size:4rem;
-font-weight:800;
-}
-
 .progress-container{
 position:fixed;
 top:15px;
@@ -181,13 +176,13 @@ left:15px;
 right:15px;
 display:flex;
 gap:6px;
-z-index:999;
+z-index:9999;
 }
 
 .progress{
 flex:1;
 height:4px;
-background:rgba(255,255,255,.25);
+background:rgba(255,255,255,.3);
 border-radius:999px;
 overflow:hidden;
 }
@@ -196,6 +191,12 @@ overflow:hidden;
 height:100%;
 width:0%;
 background:white;
+transition:.4s;
+}
+  
+.big-number{
+font-size:4rem;
+font-weight:800;
 }
 
 </style>
@@ -205,11 +206,25 @@ background:white;
 
 <div class="progress-container">
 
-<div class="progress"><div class="fill active"></div></div>
-<div class="progress"><div class="fill"></div></div>
-<div class="progress"><div class="fill"></div></div>
-<div class="progress"><div class="fill"></div></div>
-<div class="progress"><div class="fill"></div></div>
+<div class="progress">
+<div class="fill"></div>
+</div>
+
+<div class="progress">
+<div class="fill"></div>
+</div>
+
+<div class="progress">
+<div class="fill"></div>
+</div>
+
+<div class="progress">
+<div class="fill"></div>
+</div>
+
+<div class="progress">
+<div class="fill"></div>
+</div>
 
 </div>
   
