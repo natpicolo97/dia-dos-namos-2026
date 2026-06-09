@@ -416,8 +416,24 @@ Math.floor(
 (agora-beijo)/(1000*60*60)
 );
 
+let atual = 0;
+
+const contadorHoras = setInterval(()=>{
+
+atual += Math.ceil(horas/100);
+
+if(atual >= horas){
+
+atual = horas;
+
+clearInterval(contadorHoras);
+
+}
+
 document.getElementById("horas").innerHTML =
-horas.toLocaleString();
+atual.toLocaleString();
+
+},20);
 
 /* ESTAÇÕES */
 
