@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natália & Bruno 💙</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#0d1f3c;
+--bg2:#274f80;
+--card:#121212;
+--text:#ffffff;
+--sub:#b3b3b3;
+}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+}
+body{
+background:linear-gradient(
+180deg,
+var(--bg2) 0%,
+var(--bg) 35%,
+#000 100%
+);
+color:white;
+min-height:100vh;
+}
+.container{
+max-width:500px;
+margin:auto;
+padding:20px;
+}
+.header{
+text-align:center;
+margin-top:20px;
+}
+.header h1{
+font-size:1.2rem;
+font-weight:700;
+}
+.header p{
+margin-top:5px;
+font-size:.9rem;
+color:#ddd;
+}
+/* PLAYER */
+.player-section{
+margin-top:30px;
+}
+.album-cover{
+width:100%;
+aspect-ratio:1;
+border-radius:20px;
+background-image:url("https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2");
+background-size:cover;
+background-position:center;
+box-shadow:0 20px 40px rgba(0,0,0,.4);
+}
+.song-info{
+margin-top:25px;
+}
+.song-title{
+font-size:2rem;
+font-weight:700;
+}
+.artist{
+color:#d0d0d0;
+margin-top:5px;
+}
+.spotify-player{
+margin-top:15px;
+border-radius:12px;
+overflow:hidden;
+}
+/* CARD PADRAO */
+.card{
+margin-top:25px;
+background:#181818;
+border-radius:24px;
+overflow:hidden;
+}
+.card-content{
+padding:24px;
+}
+.card-title{
+font-size:2rem;
+font-weight:700;
+margin-bottom:15px;
+}
+/* SOBRE */
+.about-image{
+height:280px;
+background-image:url("https://images.unsplash.com/photo-1517841905240-472988babdf9");
+background-size:cover;
+background-position:center;
+}
+.about-name{
+font-size:2rem;
+font-weight:700;
+margin-bottom:10px;
+}
+.about-text{
+line-height:1.8;
+color:#d4d4d4;
+}
+/* CONTADORES */
+.counter{
+background:#222;
+padding:18px;
+border-radius:18px;
+margin-bottom:12px;
+}
+.counter small{
+display:block;
+color:#aaa;
+margin-bottom:6px;
+}
+.counter strong{
+font-size:1.5rem;
+}
+/* MENSAGEM */
+.message-card{
+background:#5d8fe0;
+color:#000;
+}
+.message-title{
+font-size:1.2rem;
+font-weight:700;
+margin-bottom:20px;
+}
+.message-text{
+font-size:2rem;
+font-weight:700;
+line-height:1.4;
+}
+/* BOTAO */
+.wrapped-btn{
+display:block;
+width:100%;
+padding:18px;
+margin-top:30px;
+text-align:center;
+text-decoration:none;
+background:white;
+color:black;
+font-weight:700;
+font-size:1rem;
+border-radius:999px;
+transition:.3s;
+}
+.wrapped-btn:hover{
+transform:scale(1.03);
+}
+.footer{
+text-align:center;
+padding:40px 0;
+color:#999;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>Natália & Bruno 💙</h1>
+<p>Nossa História</p>
+</div>
+<section class="player-section">
+<div class="album-cover"></div>
+<div class="song-info">
+<div class="song-title">
+Diferentão
+</div>
+<div class="artist">
+Dilsinho
+</div>
+<div class="spotify-player">
+<!-- TROCAR PELO LINK DA MUSICA -->
+<iframe
+style="border-radius:12px"
+src="https://open.spotify.com/embed/track/SEU_ID_AQUI"
+width="100%"
+height="152"
+frameborder="0"
+allowfullscreen=""
+loading="lazy">
+</iframe>
+</div>
+</div>
+</section>
+<!-- SOBRE -->
+<section class="card">
+<div class="about-image"></div>
+<div class="card-content">
+<div class="card-title">
+Sobre o casal
+</div>
+<div class="about-name">
+Natália & Bruno ❤️
+</div>
+<div class="about-text">
+
+Tudo começou com uma mensagem enviada
+em 26 de dezembro de 2025.
+
+O que parecia apenas mais uma conversa
+acabou se transformando em uma história
+cheia de carinho, cumplicidade e momentos
+que merecem ser lembrados.
+
+Desde então, seguimos criando memórias,
+colecionando sorrisos e escrevendo,
+um dia de cada vez,
+a nossa própria playlist.
+
+</div>
+</div>
+</section>
+<!-- CONTADORES -->
+<section class="card">
+<div class="card-content">
+<div class="card-title">
+Nossa Linha do Tempo
+</div>
+<div class="counter">
+<small>❤️ Primeira mensagem</small>
+<strong id="msg"></strong>
+</div>
+<div class="counter">
+<small>💋 Primeiro beijo</small>
+<strong id="beijo"></strong>
+</div>
+<div class="counter">
+<small>💙 Namoro</small>
+<strong id="namoro"></strong>
+</div>
+</div>
+</section>
+<!-- MENSAGEM -->
+<section class="card message-card">
+<div class="card-content">
+<div class="message-title">
+Mensagem especial
+</div>
+<div class="message-text">
+
+Você apareceu sem aviso.
+
+E de alguma forma
+
+transformou os dias comuns
+
+nas minhas memórias favoritas.
+
+</div>
+</div>
+</section>
+<a class="wrapped-btn" href="wrapped.html">
+✨ Ver Wrapped do Casal
+</a>
+<div class="footer">
+Feito com amor 💙
+</div>
+</div>
+<script>
+function diasDesde(data){
+const hoje = new Date();
+const diff = hoje - data;
+return Math.floor(
+diff / (1000*60*60*24)
+);
+}
+document.getElementById("msg").innerHTML =
+diasDesde(new Date("2025-12-26")) + " dias";
+document.getElementById("beijo").innerHTML =
+diasDesde(new Date("2026-02-22")) + " dias";
+document.getElementById("namoro").innerHTML =
+diasDesde(new Date("2026-05-23")) + " dias";
+</script>
+</body>
+</html
