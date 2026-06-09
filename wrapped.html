@@ -351,10 +351,37 @@ e continua florescendo.
 
 let page = 0;
 
+function atualizarBarras(){
+
+const fills =
+document.querySelectorAll(".fill");
+
+fills.forEach((fill,index)=>{
+
+if(index < page){
+
+fill.style.width = "100%";
+
+}else if(index === page){
+
+fill.style.width = "100%";
+
+}else{
+
+fill.style.width = "0%";
+
+}
+
+});
+
+}
+  
 function update(){
 
 document.getElementById("slider").style.transform =
 `translateX(-${page*100}vw)`;
+
+atualizarBarras();
 
 }
 
@@ -375,6 +402,18 @@ update();
 }
 
 }
+
+setInterval(()=>{
+
+if(page < 4){
+
+page++;
+
+update();
+
+}
+
+},6000);
 
 /* HORAS */
 
@@ -445,6 +484,8 @@ opcoes[sorteio];
 
 }
 
+update();
+  
 </script>
 
 </body>
